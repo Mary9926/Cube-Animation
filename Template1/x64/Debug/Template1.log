@@ -1,0 +1,3 @@
+﻿  stdafx.cpp
+  Template1.cpp
+LINK : fatal error LNK1104: nie można otworzyć pliku „glut32.lib”
