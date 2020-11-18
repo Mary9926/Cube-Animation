@@ -1,2 +1,3 @@
 ﻿  Template1.cpp
+C:\dane\studia\5 semsetr\Computer Graphic\Cube\Cube-Animation\Template1\Template1.cpp(108,33): warning C4554: „&”: Sprawdź pierwszeństwo operatorów w poszukiwaniu możliwego błędu; użyj nawiasów, aby ujednoznacznić pierwszeństwo
   Template1.vcxproj -> C:\dane\studia\5 semsetr\Computer Graphic\Cube\Cube-Animation\Debug\Template1.exe

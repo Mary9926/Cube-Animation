@@ -9,6 +9,7 @@ float zDirection = -8.0;
 float angle = 0.0;
 float angleTip = 0;
 float angleView = 0;
+float zoom = -8;
 
 void DrawCube() {
 	glBegin(GL_QUADS);
@@ -55,6 +56,7 @@ void MyDisplay() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 	glTranslatef(0.0, 0.0, zDirection);
+	glTranslatef(0.0, 0.0, zoom);
 	glRotatef(angleTip, 1, 0, 0);  // Up and down arrow keys
 	glRotatef(angleView, 0, 1, 0);  // Right/left arrow keys 
 	//---------random rotation-------------------//
@@ -99,7 +101,17 @@ void Timer(int)
 	}
 }
 
-void MyInit() {
+void Zoom(unsigned char key, int x, int y) {
+	if (key == 'z') {
+		zoom -= 1;
+	}
+	else if (key == 'a' & zoom < -4) {
+		zoom += 1;
+		glutPostRedisplay();
+	}
+}
+
+void MyInit(){
 	glClearColor(0.0, 0.0, 0.0, 1.0); 
 	glEnable(GL_DEPTH_TEST); // enable depht testing
 }
@@ -113,6 +125,7 @@ int main(int argc, char** argv) { //<- for normal API
 	glutDisplayFunc(MyDisplay);
 	glutReshapeFunc(Reshape);
 	glutSpecialFunc(Arrows);
+	glutKeyboardFunc(Zoom);
 	glutTimerFunc(0, Timer, 0);
 	MyInit();
 	glutMainLoop();//enter main loop and process events
